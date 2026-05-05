@@ -1,0 +1,134 @@
+---
+// Footer.astro — 3-column layout + single Vreko attribution line
+// Replaces Starlight's built-in footer via astro.config.mjs components.Footer
+---
+
+<footer class="wj-footer">
+	<div class="wj-footer__columns">
+		<div class="wj-footer__col">
+			<h3>About</h3>
+			<ul>
+				<li><a href="/">What is workspace.json?</a></li>
+				<li><a href="/governance/">Governance</a></li>
+				<li><a href="/changelog/">Changelog</a></li>
+				<li>
+					<a href="https://github.com/workspacejson/spec/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">
+						License (Apache 2.0)
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="wj-footer__col">
+			<h3>Resources</h3>
+			<ul>
+				<li><a href="/spec/">Spec (latest)</a></li>
+				<li><a href="/audit/">Audit Tool</a></li>
+				<li><a href="/examples/">Examples</a></li>
+				<li><a href="/faq/">FAQ</a></li>
+			</ul>
+		</div>
+		<div class="wj-footer__col">
+			<h3>Project</h3>
+			<ul>
+				<li>
+					<a href="https://github.com/workspacejson/spec" target="_blank" rel="noopener noreferrer">
+						GitHub
+					</a>
+				</li>
+				<li>
+					<a href="https://www.npmjs.com/package/agents-audit" target="_blank" rel="noopener noreferrer">
+						npm: agents-audit
+					</a>
+				</li>
+				<li>
+					<a href="https://www.npmjs.com/package/@workspacejson/spec" target="_blank" rel="noopener noreferrer">
+						npm: @workspacejson/spec
+					</a>
+				</li>
+				<li>
+					<a href="https://www.npmjs.com/package/@workspacejson/rules" target="_blank" rel="noopener noreferrer">
+						npm: @workspacejson/rules
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<p class="wj-footer__attribution">
+		Initial spec authored and maintained by the team at
+		<a href="https://vreko.dev" target="_blank" rel="noopener noreferrer">vreko.dev</a>.
+		workspace.json is licensed under Apache 2.0 and proposed for AAIF donation.
+	</p>
+</footer>
+
+<style>
+	.wj-footer {
+		border-top: 1px solid var(--sl-color-gray-2);
+		padding: 2.5rem 0 1.5rem;
+		margin-top: 4rem;
+	}
+
+	.wj-footer__columns {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+		max-width: var(--sl-content-width-wide, 60rem);
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+
+	.wj-footer__col h3 {
+		font-size: 0.875rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--sl-color-text);
+		margin: 0 0 0.75rem;
+	}
+
+	.wj-footer__col ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.wj-footer__col a {
+		font-size: 0.875rem;
+		color: var(--sl-color-gray-4);
+		text-decoration: none;
+	}
+
+	.wj-footer__col a:hover {
+		color: var(--sl-color-accent);
+	}
+
+	.wj-footer__attribution {
+		text-align: center;
+		margin-top: 2rem;
+		padding: 0 1rem;
+		font-size: 0.8125rem;
+		color: var(--sl-color-gray-4);
+		max-width: var(--sl-content-width-wide, 60rem);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.wj-footer__attribution a {
+		color: var(--sl-color-gray-4);
+		text-decoration: underline;
+		text-decoration-color: var(--sl-color-gray-3);
+	}
+
+	.wj-footer__attribution a:hover {
+		color: var(--sl-color-accent);
+	}
+
+	@media (max-width: 640px) {
+		.wj-footer__columns {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+	}
+</style>
