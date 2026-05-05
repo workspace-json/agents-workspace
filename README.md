@@ -1,49 +1,38 @@
-# Starlight Starter Kit: Basics
+# workspace.json - Specification Site
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+Documentation site for the [workspace.json](https://workspacejson.dev) open convention.
 
-```
-npm create astro@latest -- --template starlight
-```
+Built with [Astro Starlight](https://starlight.astro.build).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## What this repo is
 
-## 🚀 Project Structure
+This is the source for the workspace.json specification documentation at [workspacejson.dev](https://workspacejson.dev). It contains the v0.1 spec, examples, governance docs, and reference for the agents-audit CLI.
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+The spec source lives in [`src/content/docs/spec.mdx`](src/content/docs/spec.mdx). The JSON Schema and TypeScript types are published separately as [`@workspacejson/spec`](https://www.npmjs.com/package/@workspacejson/spec) on npm.
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+## Local development
+
+```bash
+npm install
+npm run dev
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+Site runs at `localhost:4321`.
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+## Contributing
 
-Static assets, like favicons, can be placed in the `public/` directory.
+Corrections and improvements to the documentation are welcome via pull request.
 
-## 🧞 Commands
+Substantive changes to the specification itself should go through the RFC process at [github.com/workspace-json/agents-workspace](https://github.com/workspace-json/agents-workspace), not here.
 
-All commands are run from the root of the project, from a terminal:
+**Adding your tool to the implementations list:** If your tool reads or writes workspace.json, open a PR editing [`src/content/docs/implementations.mdx`](src/content/docs/implementations.mdx). Add one line with your tool name, a link, and one sentence on what it does. We list any tool that documents workspace.json support in its public docs.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+See [governance](https://workspacejson.dev/governance) for how the spec is maintained.
 
-## 👀 Want to learn more?
+## Issues and discussion
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+[Open an issue](https://github.com/workspace-json/agents-workspace/issues) for documentation bugs, broken links, or spec clarification questions.
+
+## License
+
+Apache 2.0. See LICENSE.
