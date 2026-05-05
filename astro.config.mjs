@@ -10,7 +10,7 @@ export default defineConfig({
 			title: 'workspace.json',
 			description: 'The open specification for AI agent workspace context files.',
 			social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/workspacejson/spec' },
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/workspace-json/agents-workspace' },
 			],
 			customCss: ['./src/styles/custom.css'],
 			expressiveCode: {
@@ -45,7 +45,7 @@ export default defineConfig({
 					items: [
 						{
 							label: 'GitHub ↗',
-							link: 'https://github.com/workspacejson/spec',
+							link: 'https://github.com/workspace-json/agents-workspace',
 							attrs: { target: '_blank', rel: 'noopener noreferrer' },
 						},
 						{

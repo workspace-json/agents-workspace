@@ -19,7 +19,7 @@ open-source repository structures. Synthesized examples are labeled as such.
 
 A large TypeScript monorepo with multiple packages and apps, pnpm workspaces,
 and mixed runtime targets. The workspace.json reflects a steady-state workspace
-with behavioral observation data — high observation count, several fragile files
+with behavioral observation data: high observation count, several fragile files
 identified from real churn patterns.
 
 Notable: the `frameworkManifest` shows multiple frameworks because the monorepo
@@ -33,21 +33,21 @@ real-world data but is not sourced from a specific repository.*
 ```json
 {
   "manual": {
-    "description": "TypeScript monorepo for a developer tooling platform — web dashboard, API server, and shared packages.",
+    "description": "TypeScript monorepo for a developer tooling platform: web dashboard, API server, and shared packages.",
     "techStack": ["TypeScript", "Next.js 15", "Hono", "PostgreSQL", "Drizzle ORM", "pnpm workspaces"],
     "conventions": [
-      "Named exports only — no default exports across any package",
+      "Named exports only: no default exports across any package",
       "All server-side errors throw typed AppError instances; catch only at route boundary",
-      "Packages are not pre-built in dev — import from source via tsconfig paths"
+      "Packages are not pre-built in dev: import from source via tsconfig paths"
     ],
     "fragileFiles": [
       {
         "path": "packages/contracts/src/index.ts",
-        "reason": "Shared type definitions. Changes cascade to all consumers — API, web, CLI, packages."
+        "reason": "Shared type definitions. Changes cascade to all consumers: API, web, CLI, packages."
       },
       {
         "path": "apps/api/src/middleware/auth.ts",
-        "reason": "Authentication middleware. High blast radius — all authenticated routes depend on this."
+        "reason": "Authentication middleware. High blast radius: all authenticated routes depend on this."
       }
     ],
     "coChangePatterns": [
@@ -124,7 +124,7 @@ real-world data but is not sourced from a specific repository.*
 **Repository:** Synthesized from real Python package structure
 
 A Python library project with a single installable package, pytest tests,
-and type annotations. The workspace.json is minimal — the generator has
+and type annotations. The workspace.json is minimal; the generator has
 fewer signals for a Python project compared to a TypeScript monorepo (no
 lockfile-based framework detection, smaller file index). The `manual` section
 carries more weight here.
@@ -138,7 +138,7 @@ plausible real-world data but is not sourced from a specific repository.*
     "description": "Pure Python library for structured data validation. No runtime dependencies.",
     "techStack": ["Python 3.11+", "pytest", "mypy", "Hatch"],
     "conventions": [
-      "All public APIs are type-annotated — mypy strict mode enforced in CI",
+      "All public APIs are type-annotated: mypy strict mode enforced in CI",
       "No dependencies beyond the standard library",
       "Tests in tests/ mirror the src/ structure"
     ],
@@ -201,7 +201,7 @@ A repository containing both a Rust CLI tool and a TypeScript web frontend.
 The workspace.json shows how the spec accommodates multiple languages under
 a single root. The `frameworkManifest` lists frameworks from both language
 ecosystems. Fragility scores reflect that Rust source files have lower AI
-modification rates — the generator observed fewer AI sessions touching Rust
+modification rates; the generator observed fewer AI sessions touching Rust
 files.
 
 *This example is synthesized from real polyglot project structure. It reflects
@@ -214,7 +214,7 @@ plausible real-world data but is not sourced from a specific repository.*
     "techStack": ["Rust", "TypeScript", "React", "Vite", "Cargo workspaces"],
     "conventions": [
       "CLI: error handling via anyhow; no panics in library code",
-      "Web: all data fetching in React Query hooks — no ad-hoc fetch() calls in components",
+      "Web: all data fetching in React Query hooks, no ad-hoc fetch() calls in components",
       "Shared JSON schema in schema/ used by both Rust (serde) and TypeScript (zod)"
     ],
     "fragileFiles": [

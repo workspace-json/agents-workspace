@@ -1,5 +1,5 @@
 ---
-title: Audit Tool — agents-audit
+title: "Audit Tool: agents-audit"
 description: Reference documentation for agents-audit, the CLI tool that audits AGENTS.md hygiene and workspace.json consistency.
 tableOfContents: true
 sidebar:
@@ -27,7 +27,7 @@ to gate CI builds on findings.
 agents-audit reads AGENTS.md (and optionally workspace.json), walks
 the repository, and produces hygiene findings with a composite score.
 Findings identify mismatches between what AGENTS.md describes and
-what is actually present in the repository — stale file references,
+what is actually present in the repository: stale file references,
 misconfigured framework entries, convention drift, and similar issues
 that accumulate as codebases evolve.
 
@@ -238,7 +238,7 @@ observed patterns in the codebase.
 
 **Example finding:**
 ```
-AGENTS.md states: "Use named exports — no default exports"
+AGENTS.md states: "Use named exports: no default exports"
 Observed: 12 files use default exports (src/components/*.tsx)
 Remediation: Update the convention statement to match current
 practice, or fix the files to follow the stated convention.
