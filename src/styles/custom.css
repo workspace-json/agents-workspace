@@ -1,76 +1,123 @@
-/* workspacejson.dev custom design tokens */
+/* workspacejson.dev — design tokens v2 */
 
-/* Fontsource — self-hosted, no Google Fonts external request */
-@import '@fontsource-variable/inter';
-@import '@fontsource/jetbrains-mono';
+/* Fonts — self-hosted via Fontsource, no external requests */
+@import '@fontsource/plus-jakarta-sans/index.css';
+@import '@fontsource-variable/geist-mono/wght.css';
 
-/* Typography */
+/* Global tokens */
 :root {
-	--sl-font: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
-	--sl-font-mono: 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
-	--sl-text-body: 1rem;
-	--sl-line-height: 1.65;
-	--sl-content-width: 45rem; /* 720px prose */
-	--sl-content-width-wide: 60rem; /* 960px docs+TOC */
+	--sl-color-accent-low:  #002d22;
+	--sl-color-accent:      #00C896;
+	--sl-color-accent-high: #7fffd4;
+	--sl-font:        'Plus Jakarta Sans', system-ui, sans-serif;
+	--sl-font-mono:   'Geist Mono', 'JetBrains Mono', monospace;
+	--sl-content-width: 52rem;
+	--sl-sidebar-width: 18rem;
 }
 
-/* Light mode colors */
-:root[data-theme='light'] {
-	--sl-color-bg: #ffffff;
-	--sl-color-bg-nav: #ffffff;
-	--sl-color-bg-sidebar: #f9fafb;
-	--sl-color-text: #1f2937;
-	--sl-color-text-accent: #2563eb;
-	--sl-color-accent: #2563eb;
-	--sl-color-accent-high: #1d4ed8;
-	--sl-color-accent-low: #dbeafe;
-	--sl-color-gray-1: #f3f4f6;
-	--sl-color-gray-2: #e5e7eb;
-	--sl-color-gray-3: #d1d5db;
-	--sl-color-gray-4: #9ca3af;
-	--sl-color-gray-5: #6b7280;
-	--sl-color-gray-6: #374151;
-}
-
-/* Dark mode colors — #0a0a0a genuinely dark bg */
+/* Dark mode */
 :root[data-theme='dark'] {
-	--sl-color-bg: #0a0a0a;
-	--sl-color-bg-nav: #0a0a0a;
-	--sl-color-bg-sidebar: #0f0f0f;
-	--sl-color-text: #e5e7eb;
-	--sl-color-text-accent: #60a5fa;
-	--sl-color-accent: #60a5fa;
-	--sl-color-accent-high: #93c5fd;
-	--sl-color-accent-low: #1e3a8a;
-	--sl-color-black: #0a0a0a;
-	--sl-color-gray-1: #18181b;
-	--sl-color-gray-2: #27272a;
-	--sl-color-gray-3: #3f3f46;
-	--sl-color-gray-4: #71717a;
-	--sl-color-gray-5: #a1a1aa;
-	--sl-color-gray-6: #d4d4d8;
+	--sl-color-bg:             #080c0b;
+	--sl-color-bg-nav:         #080c0b;
+	--sl-color-bg-sidebar:     #090d0c;
+	--sl-color-bg-inline-code: #0f1a17;
+	--sl-color-gray-1:         #e8f0ed;
+	--sl-color-gray-2:         #b0c4bc;
+	--sl-color-gray-3:         #7a9e94;
+	--sl-color-gray-4:         #4a7a70;
+	--sl-color-gray-5:         #2a4a42;
+	--sl-color-gray-6:         #13261f;
+	--sl-color-hairline:       #1a2e28;
+	--sl-color-text:           #e8f0ed;
+	--sl-color-text-accent:    #00C896;
+	--sl-color-white:          #e8f0ed;
+	--sl-color-black:          #080c0b;
 }
 
-/* Code block styling — subtle border, no shadow */
+/* Light mode */
+:root[data-theme='light'] {
+	--sl-color-bg:             #ffffff;
+	--sl-color-bg-nav:         #ffffff;
+	--sl-color-bg-sidebar:     #f5faf8;
+	--sl-color-bg-inline-code: #e8f5f0;
+	--sl-color-gray-1:         #0a1f1a;
+	--sl-color-gray-2:         #1a3530;
+	--sl-color-gray-3:         #2d5548;
+	--sl-color-gray-4:         #4a8070;
+	--sl-color-gray-5:         #7ab5a5;
+	--sl-color-gray-6:         #c0ddd8;
+	--sl-color-hairline:       #d0e8e0;
+	--sl-color-text:           #0a1f1a;
+	--sl-color-text-accent:    #008a6a;
+	--sl-color-white:          #ffffff;
+	--sl-color-black:          #0a1f1a;
+}
+
+/* Code blocks */
 .expressive-code .frame {
-	border-radius: 4px;
-	border: 1px solid var(--sl-color-gray-2);
+	border-radius: 6px;
+	border: 1px solid var(--sl-color-hairline, var(--sl-color-gray-2));
 	box-shadow: none;
 }
 
-/* Link color transitions only — no other animations */
-a {
-	transition: color 0.15s ease;
+/* Hero gradient heading */
+h1.wj-hero__title {
+	background: linear-gradient(135deg, #00C896 0%, #7fffd4 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
 }
 
-/* Tap targets minimum 44px */
-nav a,
-button {
-	min-height: 44px;
+/* Stability badges */
+.badge-stable {
+	display: inline-block;
+	padding: 0.125rem 0.5rem;
+	border-radius: 999px;
+	font-size: 0.6875rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	background: color-mix(in srgb, #00C896 15%, transparent);
+	color: #00C896;
+	border: 1px solid color-mix(in srgb, #00C896 40%, transparent);
 }
 
-/* Code blocks: horizontal scroll, no wrap */
-pre {
-	overflow-x: auto;
-	white-space: pre;
+.badge-experimental {
+	display: inline-block;
+	padding: 0.125rem 0.5rem;
+	border-radius: 999px;
+	font-size: 0.6875rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	background: color-mix(in srgb, #f59e0b 15%, transparent);
+	color: #f59e0b;
+	border: 1px solid color-mix(in srgb, #f59e0b 40%, transparent);
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--sl-color-gray-5); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--sl-color-gray-4); }
+
+/* Selection */
+::selection {
+	background: color-mix(in srgb, #00C896 25%, transparent);
+	color: inherit;
+}
+
+/* Focus ring */
+:focus-visible {
+	outline: 2px solid #00C896;
+	outline-offset: 2px;
+}
+
+/* Link transitions */
+a { transition: color 0.15s ease; }
+
+/* Tap targets */
+nav a, button { min-height: 44px; }
+
+/* Code: no wrap */
+pre { overflow-x: auto; white-space: pre; }

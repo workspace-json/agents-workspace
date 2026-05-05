@@ -13,19 +13,52 @@ export default defineConfig({
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/workspacejson/spec' },
 			],
 			customCss: ['./src/styles/custom.css'],
-			expressiveCode: { themes: ['github-light', 'github-dark'] },
+			expressiveCode: {
+				themes: ['one-dark-pro', 'github-light'],
+			},
 			sidebar: [
-				{ label: 'Spec', link: '/spec/' },
-				{ label: 'Audit', link: '/audit/' },
-				{ label: 'Examples', link: '/examples/' },
 				{
-					label: 'Spec Repo ↗',
-					link: 'https://github.com/workspacejson/spec',
-					attrs: { target: '_blank', rel: 'noopener noreferrer' },
+					label: 'Overview',
+					items: [
+						{ label: 'What is workspace.json?', link: '/' },
+						{ label: 'FAQ', link: '/faq/' },
+					],
+				},
+				{
+					label: 'Specification',
+					items: [
+						{ label: 'v0.1 Spec', link: '/spec/' },
+						{ label: 'Examples', link: '/examples/' },
+						{ label: 'Implementations', link: '/implementations/' },
+						{ label: 'Governance', link: '/governance/' },
+						{ label: 'Changelog', link: '/changelog/' },
+					],
+				},
+				{
+					label: 'Audit Tool',
+					items: [
+						{ label: 'Overview', link: '/audit/' },
+					],
+				},
+				{
+					label: 'Resources',
+					items: [
+						{
+							label: 'GitHub ↗',
+							link: 'https://github.com/workspacejson/spec',
+							attrs: { target: '_blank', rel: 'noopener noreferrer' },
+						},
+						{
+							label: 'npm: @workspacejson/spec ↗',
+							link: 'https://www.npmjs.com/package/@workspacejson/spec',
+							attrs: { target: '_blank', rel: 'noopener noreferrer' },
+						},
+					],
 				},
 			],
 			components: {
-				Footer: './src/components/Footer.astro',
+				Footer: './src/components/overrides/Footer.astro',
+				Head: './src/components/overrides/Head.astro',
 			},
 			head: [
 				{
