@@ -1,0 +1,20 @@
+---
+title: Changelog
+description: Version history for the workspace.json specification and associated tools.
+tableOfContents: false
+sidebar:
+  order: 7
+  label: Changelog
+---
+
+## v0.1.0 — 2026-05-22
+
+Initial public release.
+
+- Core spec stable: file index, framework manifest, agent file references, stable health signals
+- Experimental fields: `structuralPhase`, `llmContextStaleness`, `packageDensity`, `testCoverageRatio`, `bootstrapOverride`
+- Reference CLI [agents-audit](https://www.npmjs.com/package/agents-audit) published to npm
+- JSON Schema published as [`@workspacejson/spec`](https://www.npmjs.com/package/@workspacejson/spec)
+- Rule library published as [`@workspacejson/rules`](https://www.npmjs.com/package/@workspacejson/rules)
+- Five v0.1 audit rules: `missing-file-reference`, `pattern-zero-match`, `framework-drift`, `section-staleness`, `convention-mismatch`
+- Apache 2.0 across all artifacts

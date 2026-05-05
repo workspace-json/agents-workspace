@@ -1,0 +1,37 @@
+---
+title: Implementations
+description: Tools that read or generate workspace.json.
+tableOfContents: false
+sidebar:
+  order: 4
+  label: Implementations
+---
+
+This page lists tools that read or generate workspace.json.
+
+At v0.1, the spec is newly published and we are not aware of any
+tool that consumes workspace.json natively beyond the tools listed below.
+
+Tool authors: if you ship workspace.json support, please open a
+PR to add your tool to this list. We list any tool that documents
+workspace.json reading or writing in its public docs.
+
+## Generation Tools
+
+Tools that write workspace.json:
+
+- **Vreko** ([vreko.dev](https://vreko.dev)) — daemon-based behavioral observation.
+  Generates workspace.json from real-time codebase monitoring.
+  [Tool homepage](https://vreko.dev) · [Docs](https://docs.vreko.dev)
+
+## Consumption Tools
+
+Tools that read workspace.json:
+
+- **agents-audit** — reference CLI for hygiene auditing.
+  Reads workspace.json when present to enhance AGENTS.md audit findings.
+  [Docs](/audit/) · [npm](https://www.npmjs.com/package/agents-audit)
+
+---
+
+*(More implementations will be listed as they emerge.)*

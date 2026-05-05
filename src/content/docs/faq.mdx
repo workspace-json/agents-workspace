@@ -1,0 +1,69 @@
+---
+title: FAQ
+description: Frequently asked questions about workspace.json.
+tableOfContents: true
+sidebar:
+  order: 6
+  label: FAQ
+---
+
+## How is workspace.json different from AGENTS.md?
+
+AGENTS.md is for prose instructions to agents (prescriptive: "what
+should agents do"). workspace.json is for structured intelligence
+about the codebase (descriptive: "what is true about the code").
+They compose; a repo can have both, and AI agents that consume
+both get richer context than agents that consume either alone.
+
+## Should I commit workspace.json to git?
+
+Yes. The file is designed to be committed so that the entire
+team's tooling shares the same view of the codebase. The schema
+explicitly excludes anything that should not be committed
+(secrets, contributor-attributed data, content snippets). See
+the [spec's security section](/spec/#5-security-and-privacy) for the full list of MUST NOT
+fields.
+
+## Do I need to install Vreko to use workspace.json?
+
+No. The spec is open and the audit tool runs without any account
+or installation beyond `npx agents-audit`. Vreko is one
+implementation of a workspace.json generator; other generators
+will likely emerge as the spec settles.
+
+## What tools currently support workspace.json?
+
+The reference CLI [agents-audit](/audit/) reads workspace.json when present.
+[Vreko](https://vreko.dev) generates workspace.json as part of its daemon output.
+Other implementations are early; see the [Implementations](/implementations/) page
+for the current list.
+
+## How is the spec governed?
+
+Apache 2.0 license, public RFC process, designed for AAIF
+donation. See the [Governance](/governance/) page for the current state.
+
+## How can my tool support workspace.json?
+
+The spec is at [/spec/](/spec/). The JSON Schema is published as
+[`@workspacejson/spec`](https://www.npmjs.com/package/@workspacejson/spec) on npm. To list your tool on the
+[Implementations](/implementations/) page, open a PR with documentation showing
+how your tool reads or writes workspace.json.
+
+## Is workspace.json compatible with .cursorrules and .windsurfrules?
+
+Yes. The `agents` section of workspace.json references all
+known agent files (AGENTS.md, `.cursorrules`, `.windsurfrules`,
+`.clinerules`, `copilot-instructions.md`, etc.). agents-audit
+reads them all. Tool-specific rule files remain authoritative
+for their tool; workspace.json provides metadata about them
+without replacing them.
+
+## Why a new spec instead of extending AGENTS.md?
+
+AGENTS.md is the right home for prose instructions. workspace.json
+addresses a different problem: machine-derived structured
+intelligence that doesn't fit the "human writes prose" model.
+Extending AGENTS.md to include a structured-intelligence section
+would conflate two different concerns and break the Markdown
+parseability that makes AGENTS.md useful.
