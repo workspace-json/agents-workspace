@@ -1,0 +1,10 @@
+{
+  "generated": {
+    "version": "1.0",
+    "generatedAt": "2026-05-06T00:00:00.000Z"
+  },
+  "manual": {
+    "description": "Minimal sample workspace.json for reviewers: shows a minimal generated.version entry and timestamp.",
+    "techStack": ["Spec example"]
+  }
+}
